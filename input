@@ -1,0 +1,4 @@
+Initial_beliefs =   ( 1 , 1,1,1,1)(1,1,1,1,1)
+ Graphe = (1,0)
+Question_order = (0,1,2,3,4)(0,1,2,3,4)
+ic= 1 and 2 OR Top AND NOT 1 && 0 | 1
