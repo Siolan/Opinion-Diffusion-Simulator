@@ -15,6 +15,7 @@ let create_int_list n =
 
 (* The update method for the pod update *)
 let rec pod_update f ic initial_state graphe nb_question nb_players i =
+	(* Update all questions for a player *)
 	let rec update_player f ic player graphe state question_id res =
 		match question_id with
 		| [] -> (*Printf.printf "Player %d, on a " player;
@@ -33,6 +34,7 @@ let rec pod_update f ic initial_state graphe nb_question nb_players i =
 			| Some a -> update_player f ic player graphe state t (res @ [a])
 		)
 	in 
+	(* Upadte all players *)
 	let rec pod_update_aux f ic graphe state player_id nb_question res =
 		match player_id with
 		| [] -> (*Printf.printf "==============\n";

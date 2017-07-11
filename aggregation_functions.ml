@@ -1,6 +1,8 @@
 open Players
 
+(* The strict majority function *)
 let strict_maj graphe player state question =
+	(* Get the answers of all the influencers on a question *)
 	let rec strict_maj_aux inf state question res =
 		match inf with
 		| [] -> res
@@ -8,6 +10,7 @@ let strict_maj graphe player state question =
 			strict_maj_aux t state question (res @ [get_answer state h question])
 	in 
 
+	(* Count the number of 0 and 1 in the questions *)
 	let rec count_0_and_1 l n0 n1 =
 		match l with
 		| [] -> (n0, n1)

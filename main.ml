@@ -61,6 +61,7 @@ let check_order_integrity question_order nb_players nb_question =
 	)
 
 let _ =
+	(* The set of option the executable accepts *)
 	let spec_list = 
 		[("-v", Unit (fun () -> verbose := true), "Verbose mode to display all steps in processes");
 		("-pod", Unit (fun () -> do_pwod := false), "Display only results for the POD process");
@@ -69,8 +70,8 @@ let _ =
 		("-i", Arg.String (fun a -> input_file := a), "Select the file from which input will be read, defaut file is \"input\"")] in
 	parse spec_list print_endline "Opinion diffusion processes";
 
+	(* Parsing the input file in order to obtain parameters for the diffusion *)
 	let (input_init, input_graphe, input_order, input_ic) = read_input !input_file in
-
 	let initial = input_init in
 	let nb_question = List.length (List.hd initial) in
 	let nb_players = List.length initial in
@@ -79,6 +80,7 @@ let _ =
 	let g = input_graphe in
 	let question_order = input_order in
 	
+	(* Launching the initial checks *)
 	printf "\nChecking if initial state satisfies IC: ";
 	(if check_state_integrity initial ic then
 		printf "OK\n"
@@ -97,6 +99,7 @@ let _ =
 
 	print_initial g initial prop_ic;
 
+	(* Launching POD process *)
 	(if !do_pod then
 		((if !verbose then
 			(printf "\n\n ======= POD STATE 0 =======\n";
@@ -115,6 +118,7 @@ let _ =
 	else 
 		());
 
+	(* Launching PWOD process *)
 	(if !do_pwod then
 		((if !verbose then
 			(printf "\n\n ======= PWOD STATE 0 =======\n";

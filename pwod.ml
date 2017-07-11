@@ -6,6 +6,7 @@ open Arguments
 
 (* The pwod process update *)
 let rec pwod_update f ic initial_state graphe nb_questions nb_players question_order i =
+	(* Update all questions for a player *)
 	let update_player f ic player state graphe question =
 		match f graphe player state question with
 		| Some a -> let new_opinion = set_question_answer (get_player_answers state player) question a in
@@ -18,6 +19,8 @@ let rec pwod_update f ic initial_state graphe nb_questions nb_players question_o
 				get_player_answers state player
 		| _ -> get_player_answers state player 
 	in
+
+	(* Update all players *)
 	let rec pwod_update_aux f ic state graphe nb_players nb_questions question_order player question res j =
 		(*Printf.printf "========================= p=%d q=%d\n" player question;
 		print_state res;*)

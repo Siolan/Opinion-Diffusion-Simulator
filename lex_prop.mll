@@ -5,7 +5,7 @@
 
 let var = ['0'-'9']+
 let prop_and = "and" | "AND" | "And" | "&" | "&&" | "∧"
-let prop_or = "or" | "OR" | "Or" | "|" | "||" | "∨"
+let prop_or = "or" | "OR" | "Or" | "|" | "||" | "∨" | "v"
 let prop_not = "not" | "NOT" | "Not" | "!" | "¬"
 let prop_top = "top" | "TOP" | "Top" | "T" | "true" | "True" | "T"
 let prop_bot = "bot" | "BOT" | "Bot" | "F" | "false" | "FALSE" | "⊥"
