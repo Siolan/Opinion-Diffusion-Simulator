@@ -3,3 +3,4 @@
 grammar_prop.ml
 grammar_prop.mli
 lex_prop.ml
+sym_manipulation
