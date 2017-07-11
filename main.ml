@@ -76,7 +76,6 @@ let _ =
 	let nb_players = List.length initial in
 	let prop_ic = input_ic in
 	let ic = create_ic prop_ic nb_question in
-	print_state ic;
 	let g = input_graphe in
 	let question_order = input_order in
 	
